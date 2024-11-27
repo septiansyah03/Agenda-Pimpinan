@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Agenda-Pimpinan/static/css/main.26d65231.css",
+    "main.js": "/Agenda-Pimpinan/static/js/main.7bb65594.js",
+    "static/js/453.b25fc274.chunk.js": "/Agenda-Pimpinan/static/js/453.b25fc274.chunk.js",
+    "index.html": "/Agenda-Pimpinan/index.html",
+    "main.26d65231.css.map": "/Agenda-Pimpinan/static/css/main.26d65231.css.map",
+    "main.7bb65594.js.map": "/Agenda-Pimpinan/static/js/main.7bb65594.js.map",
+    "453.b25fc274.chunk.js.map": "/Agenda-Pimpinan/static/js/453.b25fc274.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.26d65231.css",
+    "static/js/main.7bb65594.js"
+  ]
+}
