@@ -1,0 +1,391 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
+
+body {
+    background: linear-gradient(135deg, #2C3E50, #34495E); /* Warna biru gelap yang elegan */
+    color: #f1f1f1; /* Warna teks tetap terang */
+    font-family: 'Arial', sans-serif;
+}
+
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #444;
+    border: 1px solid #555;
+    border-radius: 8px;
+    color: #f1f1f1;
+    transition: all 0.3s ease;
+}
+
+li:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+}
+
+li button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+li button:hover {
+    background-color: #c82333;
+}
+
+.agenda-container {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 30px;
+    background: #222222;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    font-family: 'Arial', sans-serif;
+    color: #f1f1f1;
+}
+
+h2 {
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    font-size: 24px;
+    color: #e4e8ea;
+    margin-bottom: 25px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #f3f0f0;
+}
+
+input, select, textarea, button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    border: 1px solid #555;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #333;
+    background-color: #444;
+    transition: all 0.3s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: #ffcc00;
+    outline: none;
+    background-color: #555;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-box {
+    background: #333;
+    padding: 25px;
+    border-radius: 10px;
+    width: 450px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    color: #f1f1f1;
+}
+
+.open-modal-button, .close-modal-button {
+    margin-top: 15px;
+    padding: 12px 25px;
+    cursor: pointer;
+    background-color: #37688f;
+    color: white;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.open-modal-button:hover, .close-modal-button:hover {
+    background-color: #0068e6;
+}
+
+/* Mengatur tabel agar bisa digulir secara horizontal pada layar kecil */
+.agenda-container {
+    max-width: 100%;
+    margin: 30px auto;
+    padding: 30px;
+    background: #222222;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    font-family: 'Arial', sans-serif;
+    color: #f1f1f1;
+    overflow-x: auto; /* Menambahkan scroll jika konten melebihi lebar container */
+}
+
+/* Styling untuk tabel agenda */
+.agenda-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+    table-layout: auto; /* Mengatur lebar kolom secara otomatis */
+}
+
+.agenda-table th, .agenda-table td {
+    border: 1px solid #555;
+    padding: 12px;
+    text-align: left;
+    font-size: 16px;
+    color: #f1f1f1;
+    word-wrap: break-word; /* Memastikan kata panjang tidak keluar dari kolom */
+}
+
+.agenda-table th {
+    background: #333;
+    color: #00ccff; /* Warna header tabel lebih cerah untuk kontras */
+    font-weight: bold;
+    text-transform: uppercase; /* Membuat teks header menjadi kapital semua */
+    letter-spacing: 1px; /* Memberikan jarak antar huruf untuk tampilan lebih elegan */
+    text-align: center; /* Menyelaraskan teks header ke tengah */
+}
+
+.agenda-table tr:nth-child(even) {
+    background-color: #444; /* Memberikan warna berbeda pada baris genap */
+}
+
+.agenda-table tr:nth-child(odd) {
+    background-color: #333; /* Memberikan warna berbeda pada baris ganjil */
+}
+
+.agenda-table tr:hover {
+    background: #555; /* Memberikan efek hover dengan warna yang lebih terang */
+    cursor: pointer; /* Menambahkan kursor pointer pada hover */
+}
+
+.agenda-table td {
+    background-color: #444; /* Menjaga warna latar belakang sel */
+    text-align: center;
+}
+
+/* Untuk tampilan responsif pada perangkat kecil */
+@media (max-width: 768px) {
+    .agenda-table th, .agenda-table td {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .agenda-table th {
+        font-size: 16px; /* Menjaga ukuran font header tabel sedikit lebih besar */
+    }
+
+    .agenda-table {
+        display: block;
+        overflow-x: auto; /* Menambahkan scroll horizontal jika konten tabel terlalu lebar */
+    }
+
+    .agenda-table th, .agenda-table td {
+        display: block;
+        width: 100%;
+        padding: 8px;
+    }
+
+    .agenda-table tr {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 15px; /* Memberikan jarak antar baris */
+    }
+}
+
+@media (max-width: 480px) {
+    .agenda-table th, .agenda-table td {
+        font-size: 12px; /* Ukuran font lebih kecil pada layar sangat kecil */
+        padding: 6px; /* Padding lebih kecil */
+    }
+
+    .agenda-table th {
+        font-size: 14px; /* Ukuran font header sedikit lebih besar */
+    }
+}
+
+
+/* Responsiveness for Mobile Devices */
+@media (max-width: 768px) {
+    .agenda-container {
+        padding: 20px;
+        margin: 20px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    input, select, textarea, button {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .modal-box {
+        width: 90%;
+        padding: 15px;
+    }
+
+    /* Ubah tampilan tabel menjadi daftar vertikal di perangkat kecil */
+    .agenda-table {
+        display: block;
+        width: 100%;
+    }
+
+    .agenda-table th, .agenda-table td {
+        display: block;
+        width: 100%;
+        padding: 10px;
+    }
+
+    .agenda-table tr {
+        margin-bottom: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .agenda-table th {
+        background: #333;
+        color: #00ccff;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .agenda-table td {
+        background: #444;
+    }
+
+    li button {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    h2 {
+        font-size: 18px;
+    }
+
+    input, select, textarea, button {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .agenda-table th, .agenda-table td {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    li button {
+        padding: 5px 10px;
+        font-size: 10px;
+    }
+}
+
+input, select, textarea, button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    border: 1px solid #555;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #333;
+    background-color: #f1f1f1; /* Lighter background color */
+    transition: all 0.3s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: #ffcc00;
+    outline: none;
+    background-color: #ffffff; /* Lighter background on focus */
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+/* Styling untuk agenda-container */
+.agenda-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Styling untuk footer */
+.footer {
+    background-color: #222222;
+    color: #f1f1f1;
+    text-align: center;
+    padding: 20px;
+    font-size: 16px; /* Ukuran font default */
+    margin-top: 30px; /* Memberikan jarak antara konten utama dan footer */
+    width: 100%;
+}
+
+/* Styling untuk ikon hati */
+.footer i {
+    color: red;
+}
+
+/* Responsiveness untuk perangkat mobile */
+@media (max-width: 768px) {
+    .footer {
+        font-size: 14px; /* Mengurangi ukuran font pada perangkat mobile */
+        padding: 15px;  /* Mengurangi padding */
+    }
+
+    .footer p {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer {
+        font-size: 12px; /* Ukuran font lebih kecil pada layar lebih kecil */
+        padding: 10px;  /* Padding lebih kecil pada perangkat sangat kecil */
+    }
+
+    .footer i {
+        font-size: 18px; /* Mengurangi ukuran ikon hati pada perangkat kecil */
+    }
+}

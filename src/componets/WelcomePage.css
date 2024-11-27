@@ -1,0 +1,80 @@
+/* Background container with a glowing dark theme */
+.welcome-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  text-align: center;
+  color: #ffffff;
+  box-shadow: 0 0 10px #0d3b66, 0 0 20px #0d3b66 inset;
+}
+
+/* Heading with subtle glowing effect */
+.welcome-container h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px #4e9fc7, 0 0 20px #4e9fc7;
+}
+
+/* Paragraph text with softened glow */
+.welcome-container p {
+  font-size: 1.3rem;
+  color: #d1d1d1;
+  margin-bottom: 30px;
+  text-shadow: 0 0 5px #777;
+}
+
+.btn-start {
+  padding: 10px 20px; /* Padding atas/bawah dan kiri/kanan */
+  font-size: 16px;
+  font-weight: bold;
+  background: linear-gradient(45deg, #e9edf1, #0a3682); /* Warna gradien dari biru ke biru lebih gelap */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-flex; /* Menggunakan flex agar ikon dan teks bisa sejajar */
+  align-items: center; /* Menyelaraskan ikon dan teks secara vertikal */
+  width: auto; /* Lebar tombol menyesuaikan dengan teks */
+  text-align: center; /* Teks terpusat dalam tombol */
+  transition: all 0.3s ease; /* Transisi halus saat tombol berinteraksi */
+}
+
+.btn-start i {
+  margin-right: 8px; /* Memberikan jarak antara ikon dan teks */
+  font-size: 18px; /* Ukuran ikon */
+}
+
+/* Efek hover pada tombol */
+.btn-start:hover {
+  background: linear-gradient(45deg, #0a3682, #e9edf1); /* Ubah arah gradien saat di-hover */
+  transform: scale(1.05); /* Sedikit memperbesar tombol saat di-hover */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Tambahkan bayangan lembut pada tombol */
+}
+
+/* Button focus effect for keyboard navigation */
+.btn-start:focus {
+  outline: none;
+  box-shadow: 0 0 10px #ffffff, 0 0 20px #4caf50;
+}
+
+
+/* Smooth fade-in animation */
+.welcome-container {
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(-20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
